@@ -13,8 +13,8 @@ public class GradSchoolsPanel extends JPanel {
     private JLabel info, addSchoolInfo, evaluateInfo, schoolLabel, academicsLabel1, researchLabel1, pubsLabel1, 
 	academicsLabel2, researchLabel2, pubsLabel2;
     private JPanel addSchoolPanel, aboutPanel, evaluatePanel;
-    private JTextField schoolField1, academicsField1,
-	researchField1, pubsField1;
+    private JTextField schoolField1;
+    private JComboBox academicsField1,researchField1, pubsField1;
   
     private GradSchools gs;
   
@@ -61,14 +61,19 @@ public class GradSchoolsPanel extends JPanel {
 	addSchoolInfo = new JLabel("Fill in the info to add a school, then click 'Add School'");
 	schoolLabel = new JLabel("School: ");
 	schoolField1 = new JTextField(10);
+
 	academicsLabel1 = new JLabel("Academics: ");
-	academicsField1 = new JTextField(10);
-	researchLabel1 = new JLabel("Research: ");
-	researchField1 = new JTextField(10);
-	pubsLabel1 = new JLabel("Pubs: ");
-	pubsField1 = new JTextField(10);
-	addSchoolButton = new JButton("Add school");
+	String[] rank = {"1","2","3","4","5"};	
+	academicsField1 = new JComboBox(rank);
 	
+	researchLabel1 = new JLabel("Research: ");
+	researchField1 = new JComboBox(rank);
+	pubsLabel1 = new JLabel("Pubs: ");
+	pubsField1 = new JComboBox(rank);
+
+	addSchoolButton = new JButton("Add school");
+	addSchoolButton.addActionListener(new ButtonListener());
+
 	GridBagConstraints gbc = new GridBagConstraints();
 	gbc.fill = GridBagConstraints.HORIZONTAL;
 	gbc.gridx = 0;
@@ -105,8 +110,9 @@ public class GradSchoolsPanel extends JPanel {
     private class ButtonListener implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 	    if (e.getSource() == addSchoolButton){
-		System.out.println("add school pushed");
-		
+		System.out.println("add school pushed");	
+		//System.out.println(academicsField1.getSelectedItem());
+
 	    }
 	}
     }
