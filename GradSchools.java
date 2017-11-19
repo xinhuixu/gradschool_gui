@@ -124,7 +124,7 @@ public class GradSchools {
     }  
     sortSchools();     // You could also have used an external Sort program.
     // print resulting ranking of schools 
-    displayRankResults(factor);
+    //displayRankResults(factor);
   }
   
   /**
