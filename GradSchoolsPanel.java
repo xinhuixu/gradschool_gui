@@ -5,8 +5,10 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 
-public class GradSchoolsPanel extends JPanel {
+
+public class GradSchoolsPanel extends JPanel implements ChangeListener{
     //instance vars
     private JTabbedPane tabbed_pane;
     private JButton addSchoolButton;
@@ -15,9 +17,11 @@ public class GradSchoolsPanel extends JPanel {
     private JPanel addSchoolPanel, aboutPanel, evaluatePanel;
     private JTextField schoolField1;
     private JComboBox academicsField1,researchField1, pubsField1;
-  
+
+    private JSlider acadSlider;
     private GradSchools gs;
-  
+
+ 
     /**
      * Constructor
      */
@@ -31,14 +35,16 @@ public class GradSchoolsPanel extends JPanel {
 	makeAddSchoolPanel();
 	tabbed_pane.addTab("Add School", addSchoolPanel);
     
-	evaluatePanel = new JPanel(false);
+	makeEvaluatePanel();
 	tabbed_pane.addTab("Evaluate", evaluatePanel);
-    
     
 	add(tabbed_pane);
     }
   
+  
     private void makeAboutPanel() {
+	//we were just testing out GridBagLayout as practice for makeEvaluatePanel() and 
+	//makeAddSchoolPanel(). We realize it is not necessary.
 	aboutPanel = new JPanel( new GridBagLayout() );
     
 	info = new JLabel( "<html>Choose the Graduate School that fits you best!<br>" +
@@ -51,9 +57,49 @@ public class GradSchoolsPanel extends JPanel {
 	gbc.gridy = 0;
 	gbc.anchor = GridBagConstraints.WEST;
     
+    
 	aboutPanel.add( info, gbc );
     }
+  
+    private void makeEvaluatePanel() {
+	evaluatePanel = new JPanel( new GridBagLayout() );
     
+	evaluateInfo = new JLabel( "Fill in the information to add a school, then click \"Add School\"" );
+    
+	academicsLabel2 = new JLabel( "Academics: " );
+    
+	int min = 0;
+	int max = 5;
+
+	acadSlider = new JSlider(JSlider.HORIZONTAL, min, max, min);
+	acadSlider.addChangeListener( this );
+    
+	//Turn on labels at major tick marks.
+	acadSlider.setMajorTickSpacing(5);
+	acadSlider.setMinorTickSpacing(1);
+	acadSlider.setPaintTicks(true);
+	acadSlider.setPaintLabels(true);
+    
+	researchLabel2 = new JLabel( "Research: " );
+    
+	pubsLabel2 = new JLabel( "Publications: " );
+    
+	GridBagConstraints gbc = new GridBagConstraints();
+	aboutPanel.add( evaluateInfo, gbc );
+	gbc.gridx++;
+	aboutPanel.add( academicsLabel2, gbc );
+	gbc.gridy++;
+	aboutPanel.add( acadSlider, gbc );
+    }
+  
+    public void stateChanged(ChangeEvent e) {
+	JSlider source = (JSlider)e.getSource();
+	if (!source.getValueIsAdjusting()) {
+	    int rating = (int)source.getValue();
+	}
+    }
+  
+  
     private void makeAddSchoolPanel() {
 	GridBagLayout gridbag = new GridBagLayout();
 	addSchoolPanel = new JPanel(gridbag);
@@ -106,14 +152,21 @@ public class GradSchoolsPanel extends JPanel {
 	addSchoolPanel.add(addSchoolButton, gbc);
     }
 
+  
     //respond to button push events
     private class ButtonListener implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 	    if (e.getSource() == addSchoolButton){
-		System.out.println("add school pushed");	
-		//System.out.println(academicsField1.getSelectedItem());
-
+		System.out.println("add school pushed");
+		String name = schoolField1.getText();
+		int aca = Integer.parseInt((String)academicsField1.getSelectedItem());
+		int res = Integer.parseInt((String)researchField1.getSelectedItem());
+		int pub = Integer.parseInt((String)pubsField1.getSelectedItem());
+		gs.addSchool(name, aca, res, pub);
+		System.out.println("Added new school\n"+gs);
 	    }
+
 	}
     }
 }
+
