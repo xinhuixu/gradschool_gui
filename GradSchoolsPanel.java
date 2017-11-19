@@ -16,10 +16,11 @@ public class GradSchoolsPanel extends JPanel implements ChangeListener {
     academicsLabel2, researchLabel2, pubsLabel2;
   private JPanel addSchoolPanel, aboutPanel, evaluatePanel;
   private JTextField schoolNameField;
-  private JSlider acadSlider;
+  private JSlider acadSlider, resSlider, pubsSlider;
+  
+  private int acadWeight, resWeight, pubsWeight;
   
   private JTextField schoolField1, academicsField1, researchField1, pubsField1;
-  
   
   private GradSchools gs;
   
@@ -80,31 +81,81 @@ public class GradSchoolsPanel extends JPanel implements ChangeListener {
     acadSlider.setMinorTickSpacing(1);
     acadSlider.setPaintTicks(true);
     acadSlider.setPaintLabels(true);
+    acadSlider.setSnapToTicks(true);
     
     researchLabel2 = new JLabel( "Research: " );
     
+    resSlider = new JSlider(JSlider.HORIZONTAL, min, max, min);
+    resSlider.addChangeListener( this );
+    
+    //Turn on labels at major tick marks.
+    resSlider.setMajorTickSpacing(5);
+    resSlider.setMinorTickSpacing(1);
+    resSlider.setPaintTicks(true);
+    resSlider.setPaintLabels(true);
+    resSlider.setSnapToTicks(true);
+    
     pubsLabel2 = new JLabel( "Publications: " );
     
+    pubsSlider = new JSlider(JSlider.HORIZONTAL, min, max, min);
+    pubsSlider.addChangeListener( this );
+    
+    //Turn on labels at major tick marks.
+    pubsSlider.setMajorTickSpacing(5);
+    pubsSlider.setMinorTickSpacing(1);
+    pubsSlider.setPaintTicks(true);
+    pubsSlider.setPaintLabels(true);
+    pubsSlider.setSnapToTicks(true);
+    
     GridBagConstraints gbc = new GridBagConstraints();
-    aboutPanel.add( evaluateInfo, gbc );
-    gbc.gridx++;
-    aboutPanel.add( academicsLabel2, gbc );
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.gridx = 0;
+    gbc.gridy = 0; 
+    gbc.anchor = GridBagConstraints.WEST;
+    
+    gbc.gridwidth = 3;
+    gbc.weightx = 0.0;
+    evaluatePanel.add( evaluateInfo, gbc );
+    
+    
     gbc.gridy++;
-    aboutPanel.add( acadSlider, gbc );
+    gbc.weightx = 0.5;
+    gbc.gridwidth = 1;
+    evaluatePanel.add( academicsLabel2, gbc );
+    gbc.gridx++;
+    evaluatePanel.add( acadSlider, gbc );
+    gbc.gridx++;
+    evaluatePanel.add( researchLabel2, gbc );
+    gbc.gridx++;
+    evaluatePanel.add( resSlider, gbc );
+    gbc.gridx++;
+    evaluatePanel.add( pubsLabel2, gbc );
+    gbc.gridx++;
+    evaluatePanel.add( pubsSlider, gbc );
   }
   
   public void stateChanged(ChangeEvent e) {
     JSlider source = (JSlider)e.getSource();
     if (!source.getValueIsAdjusting()) {
-      int rating = (int)source.getValue();
+      
+      if( source == acadSlider ){
+        acadWeight = source.getValue();
+      }
+      if( source == resSlider ){
+       resWeight = source.getValue();
+      }
+      if( source == pubsSlider ){
+        pubsWeight = source.getValue();
+      }
+      gs.computeRatings( acadWeight, resWeight, pubsWeight );
+      gs.rankSchools( "Overall" );
+      System.out.println( gs.getTop() );
     }
   }
-  
   
   private void makeAddSchoolPanel() {
     GridBagLayout gridbag = new GridBagLayout();
     addSchoolPanel = new JPanel(gridbag);
-    //addSchoolPanel.setPreferredSize(new Dimension(600,300));
     addSchoolInfo = new JLabel("Fill in the info to add a school, then click 'Add School'");
     schoolLabel1 = new JLabel("School: ");
     schoolField1 = new JTextField(10);
@@ -148,7 +199,7 @@ public class GradSchoolsPanel extends JPanel implements ChangeListener {
     addSchoolPanel.add(addSchoolButton, gbc);
   }
   
-//respond to button push events
+  //respond to button push events
   private class ButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       if (e.getSource() == addSchoolButton){
@@ -157,5 +208,6 @@ public class GradSchoolsPanel extends JPanel implements ChangeListener {
       }
     }
   }
+  
 }
 
