@@ -4,6 +4,7 @@
  */
 
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class GradSchoolsGUI {
   
@@ -14,6 +15,8 @@ public class GradSchoolsGUI {
     GradSchools gs = new GradSchools();
     
     GradSchoolsPanel panel = new GradSchoolsPanel(gs);
+    //    panel.setPreferredSize(new Dimension(600, 300));
+    frame.setSize(600, 300);
     frame.getContentPane().add(panel);
     
     frame.pack();
