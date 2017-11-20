@@ -1,0 +1,102 @@
+Compiler is using classPath = '[/Users/juliamcdonald/Documents/Freshman/Data Structures/ps08_jmcdona6_xxu2/gradschool_gui, /Users/juliamcdonald/Downloads/drjava-beta-20160913-225446.jar]';  bootClassPath = 'null'
+Compiler is using classPath = '[/Users/juliamcdonald/Documents/Freshman/Data Structures/ps08_jmcdona6_xxu2/gradschool_gui, /Users/juliamcdonald/Downloads/drjava-beta-20160913-225446.jar]';  bootClassPath = 'null'
+add school pushed
+Added new school
+There are 1 schools in the database:
+SCHOOL: Wellesley	 Academics: 4	 Research: 3	 Publications: 2
+ Overall: 0	 Current rank: 0
+
+
+add school pushed
+Added new school
+There are 2 schools in the database:
+SCHOOL: Wellesley	 Academics: 4	 Research: 3	 Publications: 2
+ Overall: 0	 Current rank: 0
+SCHOOL: Princeton	 Academics: 4	 Research: 4	 Publications: 3
+ Overall: 0	 Current rank: 0
+
+
+add school pushed
+Added new school
+There are 3 schools in the database:
+SCHOOL: Wellesley	 Academics: 4	 Research: 3	 Publications: 2
+ Overall: 0	 Current rank: 0
+SCHOOL: Princeton	 Academics: 4	 Research: 4	 Publications: 3
+ Overall: 0	 Current rank: 0
+SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 0	 Current rank: 0
+
+
+add school pushed
+Added new school
+There are 4 schools in the database:
+SCHOOL: Wellesley	 Academics: 4	 Research: 3	 Publications: 2
+ Overall: 0	 Current rank: 0
+SCHOOL: Princeton	 Academics: 4	 Research: 4	 Publications: 3
+ Overall: 0	 Current rank: 0
+SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 0	 Current rank: 0
+SCHOOL: MIT	 Academics: 5	 Research: 2	 Publications: 4
+ Overall: 0	 Current rank: 0
+
+
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 17	 Current rank: 17
+ and the weights are Academics: 2 Research: 0 Pubs: 0
+The top school is SCHOOL: MIT	 Academics: 5	 Research: 2	 Publications: 4
+ Overall: 31	 Current rank: 31
+ and the weights are Academics: 5 Research: 0 Pubs: 0
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 33	 Current rank: 33
+ and the weights are Academics: 5 Research: 2 Pubs: 0
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 43	 Current rank: 43
+ and the weights are Academics: 5 Research: 2 Pubs: 3
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 27	 Current rank: 27
+ and the weights are Academics: 0 Research: 2 Pubs: 3
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 37	 Current rank: 37
+ and the weights are Academics: 0 Research: 2 Pubs: 5
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 33	 Current rank: 33
+ and the weights are Academics: 0 Research: 1 Pubs: 5
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 45	 Current rank: 45
+ and the weights are Academics: 0 Research: 4 Pubs: 5
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 30	 Current rank: 30
+ and the weights are Academics: 0 Research: 4 Pubs: 2
+The top school is SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 46	 Current rank: 46
+ and the weights are Academics: 5 Research: 4 Pubs: 2
+add school pushed
+Added new school
+There are 5 schools in the database:
+SCHOOL: Wellesley	 Academics: 4	 Research: 3	 Publications: 2
+ Overall: 36	 Current rank: 36
+SCHOOL: MIT	 Academics: 5	 Research: 2	 Publications: 4
+ Overall: 41	 Current rank: 41
+SCHOOL: Princeton	 Academics: 4	 Research: 4	 Publications: 3
+ Overall: 42	 Current rank: 42
+SCHOOL: 	 Academics: 4	 Research: 4	 Publications: 5
+ Overall: 46	 Current rank: 46
+SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 0	 Current rank: 0
+
+
+The top school is SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 45	 Current rank: 45
+ and the weights are Academics: 3 Research: 4 Pubs: 2
+The top school is SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 35	 Current rank: 35
+ and the weights are Academics: 3 Research: 2 Pubs: 2
+The top school is SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 30	 Current rank: 30
+ and the weights are Academics: 3 Research: 2 Pubs: 1
+The top school is SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 45	 Current rank: 45
+ and the weights are Academics: 3 Research: 5 Pubs: 1
+The top school is SCHOOL: CalTech	 Academics: 5	 Research: 5	 Publications: 5
+ Overall: 35	 Current rank: 35
+ and the weights are Academics: 0 Research: 5 Pubs: 1

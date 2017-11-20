@@ -171,6 +171,8 @@ public class GradSchoolsPanel extends JPanel implements ChangeListener {
       gs.computeRatings( acadWeight, resWeight, pubsWeight );
       gs.rankSchools( "Overall" );
       topSchoolLabel.setText( gs.getTop().toString());
+      System.out.println( "The top school is " + gs.getTop().toString() + " and the weights are Academics: " 
+                           + acadWeight + " Research: " + resWeight + " Pubs: " + pubsWeight);
     }
   }  
   
